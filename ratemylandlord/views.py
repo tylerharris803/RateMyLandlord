@@ -14,3 +14,5 @@ def editReviewsPageView(request) :
     
 def contactPageView(request) :
     return HttpResponse('RateMyLandLord: Contact info goes here')
+
+    #Connor was here
