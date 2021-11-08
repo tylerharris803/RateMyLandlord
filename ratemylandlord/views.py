@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-#becca was here
+#becca was here.
 
 #Madaleine Was Here lolz
 
