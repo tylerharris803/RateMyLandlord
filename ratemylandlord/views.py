@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+#Madaleine Was Here lolz
+
 def indexPageView(request) :
     return HttpResponse('This is the RateMyLandlord homepage')
 
