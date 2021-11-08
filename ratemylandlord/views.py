@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 #becca was here.
 
-#Madaleine Was Here lolz
+#Madaleine Was Here lolzzzzzzzzzzzzz
 
 #can you see this
 
