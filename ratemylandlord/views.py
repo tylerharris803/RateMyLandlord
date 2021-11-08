@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 #Madaleine Was Here lolz
 
-#hey
+#hello there yo
 
 def indexPageView(request) :
     return HttpResponse('This is the RateMyLandlord homepage')
