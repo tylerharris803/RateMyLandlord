@@ -7,7 +7,7 @@ from django.http import HttpResponse
 #can you see this
 
 def indexPageView(request) :
-    return HttpResponse('This is the RateMyLandlord homepage')
+    return render(request, 'ratemylandlord/index.html')
 
 def viewReviewsPageView(request) :
     return HttpResponse('RateMyLandLord: Welcome to the view reviews page')
@@ -15,7 +15,7 @@ def viewReviewsPageView(request) :
 def editReviewsPageView(request) :
     return HttpResponse('RateMyLandLord: Welcome to the edit reviews page')
     
-def contactPageView(request) :
-    return HttpResponse('RateMyLandLord: Contact info goes here')
+def aboutPageView(request) :
+    return render(request, 'ratemylandlord/about.html')
 
     #Connor was here
