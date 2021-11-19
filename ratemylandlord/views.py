@@ -10,10 +10,10 @@ def indexPageView(request) :
     return render(request, 'ratemylandlord/index.html')
 
 def viewReviewsPageView(request) :
-    return HttpResponse('RateMyLandLord: Welcome to the view reviews page')
+    return render(request, 'ratemylandlord/viewreviews.html')
 
 def editReviewsPageView(request) :
-    return HttpResponse('RateMyLandLord: Welcome to the edit reviews page')
+    return render(request, 'ratemylandlord/editreviews.html')
     
 def aboutPageView(request) :
     return render(request, 'ratemylandlord/about.html')
