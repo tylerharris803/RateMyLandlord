@@ -126,7 +126,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Group1_403_Project/static')
+    os.path.join(BASE_DIR, 'ratemylandlord/static')
 ]     
 
 # Default primary key field type
