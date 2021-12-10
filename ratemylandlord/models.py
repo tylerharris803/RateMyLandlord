@@ -11,6 +11,9 @@ class Landlord(models.Model) :
 
     def __str__(self) :
         return (self.management_company)
+    
+    class Meta:
+        db_table = "ratemylandlord_landlord"
 
 class Property(models.Model) :
     landlord = models.ForeignKey(Landlord, on_delete = models.DO_NOTHING)
@@ -22,6 +25,9 @@ class Property(models.Model) :
 
     def __str__(self) :
         return (self.property_name)
+    
+    class Meta:
+        db_table = "ratemylandlord_property"
 
 class User(models.Model) :
     nickname = models.CharField(max_length = 30)
@@ -41,6 +47,9 @@ class User(models.Model) :
         self.first_name = self.first_name.upper()
         self.last_name = self.last_name.upper()
         super(User, self).save()
+
+    class Meta:
+        db_table = "ratemylandlord_user"
 
 class Rating(models.Model) :
     rating = models.IntegerField(default = 0, validators = [MaxValueValidator(10), MinValueValidator(0)])
@@ -65,3 +74,6 @@ class Rating(models.Model) :
 
     def __str__(self) :
         return (self.properties, str(self.rating))
+
+    class Meta:
+        db_table = "ratemylandlord_rating"
