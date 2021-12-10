@@ -18,4 +18,7 @@ def editReviewsPageView(request) :
 def aboutPageView(request) :
     return render(request, 'ratemylandlord/about.html')
 
+def addReviewsPageView(request) :
+    return render(request, 'ratemylandlord/addreviews.html')
+
     #Connor was here
