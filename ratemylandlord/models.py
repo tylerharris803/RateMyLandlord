@@ -73,7 +73,7 @@ class Rating(models.Model) :
     users =  models.ForeignKey(User, on_delete = models.DO_NOTHING)
 
     def __str__(self) :
-        return (self.properties, str(self.rating))
+        return '%s %s' % (self.properties.property_name, self.rating)
 
     class Meta:
         db_table = "ratemylandlord_rating"
