@@ -1,5 +1,132 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<p>this is the EDIT reviews page</p>
+<!-- <header class="masthead">
+    <div class="container">
+        <div class="masthead-heading text-uppercase" style="font-style: bold">Edit Review</div>
+    </div>
+</header>
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <br><br>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x" style="color:#ffad33"></i>
+                    <i class="fas fa-user fa-stack-1x fa-inverse"></i>
+                </span> -->
+                <h4 class="my-3">Review</h4>
+                <form class="text-muted" name="form" method="post" action="{% url 'editreviews' %}">
+                    {% csrf_token %}
+                    <input type="hidden" id="editid" name="editid" value="{{pres.NPI}}"></input> <!--change this -->
+                    <label for="firstName">First Name
+                    <input type="text" id="firstName" name="firstName" maxlength="15" width="75px" value="{{pres.Fname}}"></label><br><br> <!--from landlord table-->
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" name="lastName" width="75px" value="{{pres.Lname}}"><br><br> <!--from landlord table-->
+                    <label>Management Company</label>
+                    <input type="text" id="management" name="management" width="75px" value="{{pres.Lname}}"><br><br> <!--from landlord table-->
+                    <label>Property</label>
+                    <input type="text" id="property" name="property" width="75px" value="{{pres.Lname}}"><br><br> <!--from property table-->
+                    <label>Address</label>
+                    <input type="text" id="address" name="address" width="75px" value="{{pres.Lname}}"><br><br> <!--from property table-->
+                    <label>City</label>
+                    <input type="text" id="city" name="city" width="75px" value="{{pres.Lname}}"><br><br> <!--from property table-->
+                    <label>State</label>
+                    <input type="text" id="state" name="state" width="75px" value="{{pres.Lname}}"><br><br> <!--from property table-->
+                    <label>Zipcode</label>
+                    <input type="number" id="zip" name="zip" width="75px" value="{{pres.Lname}}"><br><br> <!--from property table-->
+                    <label>Rating</label>
+                    <input type="number" id="rating" name="rating" width="75px" value="{{pres.Lname}}"><br><br> <!--from rating table-->
+                    <label for="poormanagement" style="text-align: left;">Poor Management  
+                        <select name="poormanagement" id="poormanagement" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>
+                    <label for="hiddenfees" style="text-align: left;">Hidden Fees  
+                        <select name="hiddenfees" id="hiddenfees" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>
+                    <label for="lackofprivacy" style="text-align: left;">Lack of Privacy
+                        <select name="lackofprivacy" id="lackofprivacy" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>
+                    <label for="unreturnedfunds" style="text-align: left;">Unreturned Funds
+                        <select name="unreturnedfunds" id="unreturnedfunds" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>                            
+                    <label>Property Condition</label>
+                    <input type="text" id="propertycondition" name="propertycondition" width="75px" value="{{pres.Lname}}"><br><br>  <!--change this --> 
+                    <label for="utilities" style="text-align: left;">Utilites 
+                        <select name="utilities" id="utilities" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>   
+                    <label for="safetyconcerns" style="text-align: left;">Safety Concerns
+                        <select name="safetyconcerns" id="safetyconcerns" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br> 
+                    <label for="applianceissues" style="text-align: left;">Appliance Issues
+                        <select name="applianceissues" id="applianceissues" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br> 
+                    <label for="mold" style="text-align: left;">Mold 
+                        <select name="mold" id="mold" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br> 
+                    <label for="pests" style="text-align: left;">Pests 
+                        <select name="pests" id="pests" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>
+                    <label for="neighborhoodproblems" style="text-align: left;">Neighborhood Problems
+                        <select name="neighborhoodproblems" id="neighborhoodproblems" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>
+                    <label for="parking" style="text-align: left;">Parking
+                        <select name="parking" id="parking" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>  
+                    <label for="badcontracts" style="text-align: left;">Bad Contracts
+                        <select name="badcontracts" id="badcontracts" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>  
+                    <label for="changeinrent" style="text-align: left;">Change in Rent
+                        <select name="changeinrent" id="changeinrent" width="75px">
+                            <option {% if pres.IsOpioidPrescriber == "True"%}selected="selected"{% endif %} value="True">True</option> <!--change this --> 
+                            <option {% if pres.IsOpioidPrescriber == "False"%}selected="selected"{% endif %} value="False">False</option> <!--change this -->
+                        </select></label>
+                        <br><br>   
+                    <label>Other Notes</label>
+                    <input type="text" id="othernotes" name="othernotes" value="{{pres.Lname}}"><br><br>     <!--change this -->          
+                    <label>Date Edited</label>
+                    <input type="date" id="dateedited" name="dateedited" value="{{pres.Lname}}"><br><br>     <!--should this change date submitted? -->   
+                    <button type="submit" class="btn btn-primary" style="background-color: #ffad33">Submit Changes</button><br><br>
+                </form>
+            <!-- </div>
+        </div>
+    </div>
+</section> -->
 {% endblock %} 
